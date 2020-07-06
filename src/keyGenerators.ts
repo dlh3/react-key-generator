@@ -11,17 +11,23 @@ export class KeyGenerators {
    *
    * @return GeneratorFunc
    */
-  static existingKey = (): GeneratorFunc => (obj: any) => obj.key;  // eslint-disable-line
+  static existingKey = (): GeneratorFunc => (obj: any) => obj.key || undefined; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   /**
    * A property extractor, allowing the objects to be walked until the leaf node is extracted.
    *
-   * @param {string[]} propPath - The properties to traverse through the objects.
+   * @param {string | string[]} propPath - The properties to traverse through the objects.
    * @return GeneratorFunc
    */
-  static fromPropertyPath = (...propPath: string[]): GeneratorFunc => (
-    obj: any  // eslint-disable-line
-  ) => propPath.reduce((prev, prop) => prev[prop], obj);
+  static fromPropertyPath = (propPath: string | string[]): GeneratorFunc => (
+    obj: any // eslint-disable-line @typescript-eslint/no-explicit-any
+  ) => {
+    const path = Array.isArray(propPath) ? propPath : propPath.split('.');
+
+    const target = path.reduce((prev, prop) => prev[prop], obj);
+
+    return !target || typeof target === 'object' ? '' : String(target);
+  };
 
   /**
    * Generate a UUID (v4).  This is always used as a fallback.
