@@ -30,6 +30,7 @@
     "clean": "gts clean",
     "compile": "tsc",
     "start": "tsc -w",
+    "debug": "npm run compile && echo 'Open chrome://inspect in Chrome' && node --inspect-brk build/src/index.js",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",

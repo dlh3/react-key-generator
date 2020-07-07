@@ -1,7 +1,5 @@
 # react-key-generator [![Build Status][ci-badge]][ci-link] [![npm version][npm-badge]][npm-link] [![License][license-image]][license-url] [![ts][ts-badge]][ts-link]
 
-A simple key extractor/generator, intended for use with arrays of objects in React
-
 [ci-badge]: https://travis-ci.com/dlh3/react-key-generator.svg?branch=master
 [ci-link]: https://travis-ci.com/dlh3/react-key-generator
 [npm-badge]: https://badge.fury.io/js/react-key-generator.svg
@@ -10,6 +8,20 @@ A simple key extractor/generator, intended for use with arrays of objects in Rea
 [license-image]: https://img.shields.io/npm/l/react-key-generator.svg
 [ts-badge]: https://badges.frapsoft.com/typescript/code/typescript.svg?v=101
 [ts-link]: https://www.typescriptlang.org/
+
+A simple key extractor/generator, intended for use with arrays of objects in React
+
+## Usage
+Pending...
+
+## Debugging
+The project can be debugged with Chrome Node DevTools.
+
+First off, add `debugger` statements in the code where you would like to place your breakpoints.  Then add code to index.ts to call the function(s) you wish to debug.  Run:
+
+`npm run debug`
+
+This will compile the typescript then run `node --inspect-brk` so you can attach the Chrome Node DevTools debugger.  Open Chrome browser, go to chrome://inspect, and click "Open dedicated DevTools for Node" under **Devices**.
 
 ## Contributors ✨
 
