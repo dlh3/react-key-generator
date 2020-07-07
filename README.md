@@ -1,11 +1,20 @@
-# react-key-generator [![Build Status][ci-badge]][ci-link] [![npm version][npm-badge]][npm-link] [![License][license-image]][license-url] [![ts][ts-badge]][ts-link]
+# react-key-generator
+[![Travis Build Status][travis-ci-badge]][travis-ci-link] [![Github Build Status][github-ci-badge]][github-ci-link]
+[![npm version][npm-badge]][npm-link] [![Known Vulnerabilities][snyk-badge]][snyk-link]
+[![License][license-badge]][license-link] [![ts][ts-badge]][ts-link]
 
-[ci-badge]: https://travis-ci.com/dlh3/react-key-generator.svg?branch=master
-[ci-link]: https://travis-ci.com/dlh3/react-key-generator
+[travis-ci-badge]: https://travis-ci.com/dlh3/react-key-generator.svg?branch=master
+[travis-ci-link]: https://travis-ci.com/dlh3/react-key-generator
+[github-ci-badge]: https://github.com/dlh3/react-key-generator/workflows/Node.js%20CI/badge.svg?branch=master
+[github-ci-link]: https://github.com/dlh3/react-key-generator/actions?query=workflow%3A%22Node.js+CI%22
+
 [npm-badge]: https://badge.fury.io/js/react-key-generator.svg
 [npm-link]: https://badge.fury.io/js/react-key-generator
-[license-url]: https://opensource.org/licenses/MIT
-[license-image]: https://img.shields.io/npm/l/react-key-generator.svg
+[snyk-badge]: https://snyk.io/test/npm/react-key-generator/badge.svg
+[snyk-link]: https://snyk.io/test/npm/react-key-generator
+
+[license-badge]: https://img.shields.io/npm/l/react-key-generator.svg
+[license-link]: https://opensource.org/licenses/MIT
 [ts-badge]: https://badges.frapsoft.com/typescript/code/typescript.svg?v=101
 [ts-link]: https://www.typescriptlang.org/
 
