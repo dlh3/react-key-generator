@@ -31,18 +31,32 @@ describe('existingKey', () => {
     expect(generator(elementWithKey)).toBe(existingKey);
   });
 
-  it('is undefined for blank key', () => {
+  it('is blank for blank key', () => {
     const elementWithKey = {...testElement};
     elementWithKey.key = '';
 
-    expect(generator(elementWithKey)).toBeUndefined();
+    expect(generator(elementWithKey)).toBe('');
   });
 
-  it('is undefined for non-existing key', () => {
+  it('is blank for non-existing key', () => {
     const elementWithKey = {...testElement};
     elementWithKey.key = undefined;
 
-    expect(generator(elementWithKey)).toBeUndefined();
+    expect(generator(elementWithKey)).toBe('');
+  });
+
+  it('works with the number 0', () => {
+    const elementWithKey = {...testElement} as any;
+    elementWithKey.key = 0;
+
+    expect(generator(elementWithKey)).toBe(String(elementWithKey.key));
+  });
+
+  it('works with the boolean false', () => {
+    const elementWithKey = {...testElement} as any;
+    elementWithKey.key = false;
+
+    expect(generator(elementWithKey)).toBe(String(elementWithKey.key));
   });
 });
 
@@ -70,6 +84,24 @@ describe('fromPropertyPath', () => {
 
       const elementWithProp = {...testElement};
       elementWithProp.id = 42;
+
+      expect(generator(elementWithProp)).toBe(String(elementWithProp.id));
+    });
+
+    it('works with the number 0', () => {
+      const generator = KeyGenerators.fromPropertyPath("id");
+
+      const elementWithProp = {...testElement};
+      elementWithProp.id = 0;
+
+      expect(generator(elementWithProp)).toBe(String(elementWithProp.id));
+    });
+
+    it('works with the boolean false', () => {
+      const generator = KeyGenerators.fromPropertyPath("id");
+
+      const elementWithProp = {...testElement};
+      elementWithProp.id = false;
 
       expect(generator(elementWithProp)).toBe(String(elementWithProp.id));
     });
@@ -115,6 +147,24 @@ describe('fromPropertyPath', () => {
 
       const elementWithProp = {...testElement};
       elementWithProp.id = 42;
+
+      expect(generator(elementWithProp)).toBe(String(elementWithProp.id));
+    });
+
+    it('works with the number 0', () => {
+      const generator = KeyGenerators.fromPropertyPath(["id"]);
+
+      const elementWithProp = {...testElement};
+      elementWithProp.id = 0;
+
+      expect(generator(elementWithProp)).toBe(String(elementWithProp.id));
+    });
+
+    it('works with the boolean false', () => {
+      const generator = KeyGenerators.fromPropertyPath(["id"]);
+
+      const elementWithProp = {...testElement};
+      elementWithProp.id = false;
 
       expect(generator(elementWithProp)).toBe(String(elementWithProp.id));
     });
