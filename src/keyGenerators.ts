@@ -6,12 +6,23 @@ import {GeneratorFunc} from './types';
  */
 export class KeyGenerators {
   /**
+   * Validates and normalizes a key candidate.  Keys must be strings or convertible to strings (number, boolean, etc).
+   *
+   * @param {unknown} key - The key candidate.
+   * @return string
+   */
+  private static normalizeKey = (key: unknown) =>
+    key === undefined || typeof key === 'object' ? '' : String(key);
+
+  /**
    * Use the existing key.  Useful when adding elements to an array that already has keys.
    * If used, will usually be the first generator provided.
    *
    * @return GeneratorFunc
    */
-  static existingKey = (): GeneratorFunc => (obj: any) => obj.key || undefined; // eslint-disable-line @typescript-eslint/no-explicit-any
+  static existingKey = (): GeneratorFunc => (
+    obj: any // eslint-disable-line @typescript-eslint/no-explicit-any
+  ) => KeyGenerators.normalizeKey(obj.key);
 
   /**
    * A property extractor, allowing the objects to be walked until the leaf node is extracted.
@@ -26,7 +37,7 @@ export class KeyGenerators {
 
     const target = path.reduce((prev, prop) => prev[prop], obj);
 
-    return !target || typeof target === 'object' ? '' : String(target);
+    return KeyGenerators.normalizeKey(target);
   };
 
   /**

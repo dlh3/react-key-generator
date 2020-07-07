@@ -37,7 +37,8 @@
       "profile": "https://github.com/palecio-xumak",
       "contributions": [
         "question",
-        "ideas"
+        "ideas",
+        "review"
       ]
     },
     {
@@ -79,5 +80,6 @@
       ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
